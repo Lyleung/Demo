@@ -34,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
         // JUMP
         if (Input.GetButtonDown("Jump"))
         {
-            Debug.Log("JUMP");
             jump = true;
         }
 
@@ -50,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
         //Crouch
         if (Input.GetButtonDown("Crouch")) 
         {
-            Debug.Log("Crouch");
             crouch = true;
         } else if (Input.GetButtonUp("Crouch"))
         {
