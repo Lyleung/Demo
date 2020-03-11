@@ -38,8 +38,6 @@ public class PlayerCoinCollision : MonoBehaviour
             score += 1;
         }
 
-        Debug.Log(score);
-
         AudioSource.PlayClipAtPoint(coinPicking, transform.position);
         scoreText.text = "Score: " + score;
 
