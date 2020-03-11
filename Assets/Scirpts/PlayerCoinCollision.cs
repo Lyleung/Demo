@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerCoinCollision : MonoBehaviour
 {
-    public static int score = 0;
+    public int score = 0;
 
     public AudioClip coinPicking;
     public Text scoreText;
