@@ -1424,7 +1424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinPicking: {fileID: 8300000, guid: 963528e83313a6b4187a2a5e87d7b786, type: 3}
-  battleManager: {fileID: 0}
+  battleManager: {fileID: 1870659201}
   player: 2
 --- !u!58 &1256250811
 CircleCollider2D:
@@ -1817,7 +1817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinPicking: {fileID: 8300000, guid: 963528e83313a6b4187a2a5e87d7b786, type: 3}
-  battleManager: {fileID: 0}
+  battleManager: {fileID: 1870659201}
   player: 1
 --- !u!114 &1655592192
 MonoBehaviour:
