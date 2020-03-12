@@ -1423,9 +1423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68c69ab8b2133a4893465082bab1d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   coinPicking: {fileID: 8300000, guid: 963528e83313a6b4187a2a5e87d7b786, type: 3}
-  scoreText: {fileID: 598217743}
+  battleManager: {fileID: 0}
+  player: 2
 --- !u!58 &1256250811
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1816,9 +1816,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68c69ab8b2133a4893465082bab1d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
   coinPicking: {fileID: 8300000, guid: 963528e83313a6b4187a2a5e87d7b786, type: 3}
-  scoreText: {fileID: 1898198922}
+  battleManager: {fileID: 0}
+  player: 1
 --- !u!114 &1655592192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2105,7 +2105,7 @@ GameObject:
   - component: {fileID: 1870659202}
   - component: {fileID: 1870659201}
   m_Layer: 0
-  m_Name: BattleLevelOneManager
+  m_Name: BattleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2123,6 +2123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357e0249d28304449bc04eec204149a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
+  playerOneScore: 0
+  playerTwoScore: 0
+  playerOneScoreText: {fileID: 1898198922}
+  playerTwoScoreText: {fileID: 598217743}
 --- !u!4 &1870659202
 Transform:
   m_ObjectHideFlags: 0
