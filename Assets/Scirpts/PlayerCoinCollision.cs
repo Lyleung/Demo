@@ -39,7 +39,7 @@ public class PlayerCoinCollision : MonoBehaviour
             if (player == 2) battleManager.playerTwoScore += 1;
         }
 
-        AudioSource.PlayClipAtPoint(coinPicking, transform.position);
+        AudioSource.PlayClipAtPoint(coinPicking, transform.position, 1.0f);
         
         isColliding = true;
     }

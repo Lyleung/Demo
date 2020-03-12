@@ -6,16 +6,17 @@ using UnityEngine.UI;
 public class BattleManager : MonoBehaviour
 {
     public int level = 1;
+    public Text playerOneScoreText;
+    public Text playerTwoScoreText;
     public int playerOneScore = 0;
     public int playerTwoScore = 0;
 
-    public Text playerOneScoreText;
-    public Text playerTwoScoreText;
+    public AudioSource backgroundMusic;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        backgroundMusic.Play();
     }
 
     // Update is called once per frame
