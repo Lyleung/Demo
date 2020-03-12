@@ -16,7 +16,7 @@ public class BattleManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        backgroundMusic.Play();
+        //backgroundMusic.Play();
     }
 
     // Update is called once per frame

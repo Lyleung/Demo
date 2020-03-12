@@ -18,8 +18,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        verticalMove = Input.GetAxisRaw("Vertical");
+        //Move
+        if (player == 1)
+        {
+            horizontalMove = Input.GetAxisRaw("PlayerOneHorizontal") * runSpeed;
+            verticalMove = Input.GetAxisRaw("PlayerOneVertical");
+        } else if(player == 2)
+        {
+            horizontalMove = Input.GetAxisRaw("PlayerTwoHorizontal") * runSpeed;
+            verticalMove = Input.GetAxisRaw("PlayerTwoVertical");
+        }
 
         // Run
         if (Mathf.Abs(horizontalMove) > 0)
@@ -31,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // JUMP
-        if (Input.GetButtonDown("Jump"))
+        if ((player == 1 && Input.GetKeyDown(KeyCode.W)) || (player == 2 && Input.GetKeyDown(KeyCode.UpArrow)))
         {
             jump = true;
         }
@@ -46,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("Grounded", (verticalMove == 0));
 
         //Crouch
-        if (Input.GetButtonDown("Crouch")) 
+        if ((player == 1 && Input.GetKeyDown(KeyCode.S)) || (player == 2 && Input.GetKeyDown(KeyCode.DownArrow))) 
         {
             crouch = true;
         } else if (Input.GetButtonUp("Crouch"))

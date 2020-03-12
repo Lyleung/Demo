@@ -5,5 +5,5 @@
     // SunQuan: 2
 
     static public int playerOne = 1;
-    static public int playerTwo = 1;
+    static public int playerTwo = 0;
 }
