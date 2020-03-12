@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerOneMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
 
     public CharacterController2D controller;
     public Animator animator;
-
     public float runSpeed = 40f;
+    public int player;
 
     float horizontalMove = 0f;
     float verticalMove = 0f;
-
     bool jump = false;
     bool crouch = false;
 
