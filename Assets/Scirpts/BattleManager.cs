@@ -28,5 +28,11 @@ public class BattleManager : MonoBehaviour
         //update score
         playerOneScoreText.text = "Score: " + playerOneScore;
         playerTwoScoreText.text = "Score: " + playerTwoScore;
+
+        //end game
+        if(coinCount <= 0)
+        {
+            // switch to board scene
+        }
     }
 }
