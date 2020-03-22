@@ -53,6 +53,10 @@ public class BattleManager : MonoBehaviour
             if (time <= 0)
             {
                 if(playerOneScore != playerTwoScore) battleEnd();
+                else
+                {
+                    timerText.text = "First Take To Win";
+                }
             }
 
         }
