@@ -1,32 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-
 public class BattleManager : MonoBehaviour
 {
     public Text playerOneScoreText;
     public Text playerTwoScoreText;
     public int playerOneScore = 0;
     public int playerTwoScore = 0;
+    public Text wonPlayerText;
+    public Text timerText;
     public AudioSource backgroundMusic;
     public float loadSceneDelay = 3f;
     public GameObject battleEndUI;
-    public Text wonPlayerText;
+    public GameObject coinObject;
 
-    private int level = BoardModel.gameLevel[BoardModel.currentGame];
+    private int level;
+    private int time = 15;
 
     // Start is called before the first frame update
     void Start()
     {
+        level = BoardModel.gameLevel[BoardModel.currentGame];
         Debug.Log("current level: " + level);
-        //backgroundMusic.Play();
+        // backgroundMusic.Play();
+
+        if (level == 2)
+        {
+            InvokeRepeating("timer", 0f, 1f);
+            InvokeRepeating("generateCoin", 1.0f, 1.5f);
+        }
     }
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         //count coins
         int coinCount = GameObject.FindGameObjectsWithTag("Coin").Length;
 
@@ -34,21 +40,53 @@ public class BattleManager : MonoBehaviour
         playerOneScoreText.text = "Score: " + playerOneScore;
         playerTwoScoreText.text = "Score: " + playerTwoScore;
 
-        //end game
-        if(coinCount <= 0)
+        if (level == 1)
         {
-            battleEnd();
+            //end game
+            if (coinCount <= 0)
+            {
+                battleEnd();
+            }
+        }
+        else if (level == 2)
+        {
+            if (time <= 0)
+            {
+                if(playerOneScore != playerTwoScore) battleEnd();
+            }
+
+        }
+        else if (level == 3)
+        {
+
         }
 
     }
 
     void battleEnd()
     {
-        if (playerOneScore > playerTwoScore) wonPlayerText.text = "Player 1";
-        else wonPlayerText.text = "Player 2";
+        int wonPlayer = 0;
+        if (playerOneScore > playerTwoScore) wonPlayer = 1;
+        else wonPlayer = 2;
 
-        // switch to board scene
-        battleEndUI.SetActive(true);
+        wonPlayerText.text = "Player " + wonPlayer;
+        BoardModel.games[BoardModel.currentGame] = wonPlayer;
+
+        battleEndUI.SetActive(true); //Animation with load scene
     }
 
+    void generateCoin()
+    {
+        Vector3 position = new Vector3(Random.Range(-11, 11), Random.Range(-1, 6), 0);
+        Instantiate(coinObject, position, Quaternion.identity);
+    }
+
+    void timer()
+    {
+        if (time > 0)
+        {
+            time -= 1;
+            timerText.text = "" + time;
+        }
+    }
 }

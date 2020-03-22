@@ -6,6 +6,6 @@
 
     static public int[] games = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0};
     static public int[] gameLevel = new int[] {1, 1, 1, 1, 2, 2, 2, 2, 3};
-    static public int currentGame = 0;
+    static public int currentGame = 4;
 }
 
