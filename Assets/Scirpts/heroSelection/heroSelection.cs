@@ -24,7 +24,8 @@ public class heroSelection : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentSelecting;
     [SerializeField] private Image heroSplash;
     [SerializeField] private Image backgroundColor;
-
+    [SerializeField] private SpriteRenderer leftRenderer;
+    [SerializeField] private SpriteRenderer rightRenderer;
 
 
     private void Start()
@@ -72,6 +73,7 @@ public class heroSelection : MonoBehaviour
             } 
             else if (Input.GetKeyDown(KeyCode.W)){
                 CharactorSelectionModel.playerTwo = selectedHeroIndex;
+
                 Time.timeScale = 0.0F;
             }
 
