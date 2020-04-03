@@ -4,6 +4,6 @@
     // CaoCao: 1
     // SunQuan: 2
 
-    static public int playerOne = 1;
-    static public int playerTwo = 0;
+    static public int playerOne = 2;
+    static public int playerTwo = 2;
 }

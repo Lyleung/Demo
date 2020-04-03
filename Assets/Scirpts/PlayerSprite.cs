@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class PlayerSprite : MonoBehaviour
 {
-    public SpriteRenderer playerSpriteRender;
     public Animator playerAnimator;
-    public Sprite liuBeiSprite;
-    public Sprite caoCaoSprite;
     public RuntimeAnimatorController liuBeiAnimator;
     public RuntimeAnimatorController caoCaoAnimator;
+    public RuntimeAnimatorController sunquanAnimator;
     public int player = 1;
 
     // Start is called before the first frame update
@@ -21,16 +19,15 @@ public class PlayerSprite : MonoBehaviour
             {
                 case 0:
                     Debug.Log("LiuBei");
-                    playerSpriteRender.sprite = liuBeiSprite;
                     playerAnimator.runtimeAnimatorController = liuBeiAnimator;
                     break;
                 case 1:
                     Debug.Log("CaoCao");
-                    playerSpriteRender.sprite = caoCaoSprite;
                     playerAnimator.runtimeAnimatorController = caoCaoAnimator;
                     break;
                 case 2:
                     Debug.Log("SunQuan");
+                    playerAnimator.runtimeAnimatorController = sunquanAnimator;
                     break;
                 default:
                     Debug.Log("default");
@@ -43,16 +40,15 @@ public class PlayerSprite : MonoBehaviour
             {
                 case 0:
                     Debug.Log("LiuBei");
-                    playerSpriteRender.sprite = liuBeiSprite;
                     playerAnimator.runtimeAnimatorController = liuBeiAnimator;
                     break;
                 case 1:
                     Debug.Log("CaoCao");
-                    playerSpriteRender.sprite = caoCaoSprite;
                     playerAnimator.runtimeAnimatorController = caoCaoAnimator;
                     break;
                 case 2:
                     Debug.Log("SunQuan");
+                    playerAnimator.runtimeAnimatorController = sunquanAnimator;
                     break;
                 default:
                     Debug.Log("default");
