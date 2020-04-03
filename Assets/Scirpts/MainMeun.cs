@@ -7,7 +7,7 @@ public class MainMeun : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("CharacterSelection");
+        SceneManager.LoadScene("HeroSelection");
     }
 
     public void QuitGame()
