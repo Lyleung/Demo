@@ -9,6 +9,7 @@ public class HeroSelectionManager : MonoBehaviour
     public GameObject p2_1;
     public GameObject p1_2;
     public GameObject p2_2;
+    public AudioSource selectSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class HeroSelectionManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.D))
         {
             CharactorSelectionModel.playerOne = (CharactorSelectionModel.playerOne + 1) % 3;
+            selectSFX.Play();
         } else if(Input.GetKeyDown(KeyCode.A))
         {
             if(CharactorSelectionModel.playerOne == 0)
@@ -31,11 +33,13 @@ public class HeroSelectionManager : MonoBehaviour
             {
                 CharactorSelectionModel.playerOne -= 1;
             }
+            selectSFX.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             CharactorSelectionModel.playerTwo = (CharactorSelectionModel.playerTwo + 1) % 3;
+            selectSFX.Play();
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
@@ -46,6 +50,7 @@ public class HeroSelectionManager : MonoBehaviour
             {
                 CharactorSelectionModel.playerTwo -=1;
             }
+            selectSFX.Play();
         }
 
         //Update Selection
