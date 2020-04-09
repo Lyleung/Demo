@@ -9,49 +9,91 @@ public class HeroSelectionManager : MonoBehaviour
     public GameObject p2_1;
     public GameObject p1_2;
     public GameObject p2_2;
+    public GameObject description;
+    public GameObject liuBeiText;
+    public GameObject caoCaoText;
+    public GameObject sunQuanText;
+
     public AudioSource selectSFX;
+
+    public int descriptionStatus = 0;
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        description.SetActive(false);
+        liuBeiText.SetActive(false);
+        caoCaoText.SetActive(false);
+        sunQuanText.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D))
+        if (descriptionStatus == 0)
         {
-            CharactorSelectionModel.playerOne = (CharactorSelectionModel.playerOne + 1) % 3;
-            selectSFX.Play();
-        } else if(Input.GetKeyDown(KeyCode.A))
-        {
-            if(CharactorSelectionModel.playerOne == 0)
+        
+            if(Input.GetKeyDown(KeyCode.D))
             {
-                CharactorSelectionModel.playerOne = 3;
-            } else
+                CharactorSelectionModel.playerOne = (CharactorSelectionModel.playerOne + 1) % 3;
+                selectSFX.Play();
+            } else if(Input.GetKeyDown(KeyCode.A))
             {
-                CharactorSelectionModel.playerOne -= 1;
+                if(CharactorSelectionModel.playerOne == 0)
+                {
+                    CharactorSelectionModel.playerOne = 3;
+                } else
+                {
+                    CharactorSelectionModel.playerOne -= 1;
+                }
+                selectSFX.Play();
+            } else if (Input.GetKeyDown(KeyCode.W))
+            {
+                description.SetActive(true);
+                descriptionStatus = 1;
             }
-            selectSFX.Play();
+
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                CharactorSelectionModel.playerTwo = (CharactorSelectionModel.playerTwo + 1) % 3;
+                selectSFX.Play();
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if (CharactorSelectionModel.playerTwo == 0)
+                {
+                    CharactorSelectionModel.playerTwo = 3;
+                } else
+                {
+                    CharactorSelectionModel.playerTwo -=1;
+                }
+                selectSFX.Play();
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                description.SetActive(true);
+                descriptionStatus = 2;
+            }
+
+        } else if (descriptionStatus == 1){
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                description.SetActive(false);
+                descriptionStatus = 0;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            CharactorSelectionModel.playerTwo = (CharactorSelectionModel.playerTwo + 1) % 3;
-            selectSFX.Play();
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            if (CharactorSelectionModel.playerTwo == 0)
+        else if (descriptionStatus == 2){
+            if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                CharactorSelectionModel.playerTwo = 3;
-            } else
-            {
-                CharactorSelectionModel.playerTwo -=1;
+                description.SetActive(false);
+                descriptionStatus = 0;
             }
-            selectSFX.Play();
         }
+
+        
 
         //Update Selection
         switch (CharactorSelectionModel.playerOne)
@@ -94,6 +136,56 @@ public class HeroSelectionManager : MonoBehaviour
                 break;
             default:
                 break;
+        }
+
+        if (descriptionStatus == 0)
+        {
+            liuBeiText.SetActive(false);
+            caoCaoText.SetActive(false);
+            sunQuanText.SetActive(false);
+
+        } else if (descriptionStatus == 1){
+            switch (CharactorSelectionModel.playerOne)
+            {
+                case 0:
+                    liuBeiText.SetActive(true);
+                    caoCaoText.SetActive(false);
+                    sunQuanText.SetActive(false);
+                    break;
+                case 1:
+                    liuBeiText.SetActive(false);
+                    caoCaoText.SetActive(true);
+                    sunQuanText.SetActive(false);
+                    break;
+                case 2:
+                    liuBeiText.SetActive(false);
+                    caoCaoText.SetActive(false);
+                    sunQuanText.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+        } else if (descriptionStatus == 2){
+            switch (CharactorSelectionModel.playerTwo)
+            {
+                case 0:
+                    liuBeiText.SetActive(true);
+                    caoCaoText.SetActive(false);
+                    sunQuanText.SetActive(false);
+                    break;
+                case 1:
+                    liuBeiText.SetActive(false);
+                    caoCaoText.SetActive(true);
+                    sunQuanText.SetActive(false);
+                    break;
+                case 2:
+                    liuBeiText.SetActive(false);
+                    caoCaoText.SetActive(false);
+                    sunQuanText.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
