@@ -16,9 +16,4 @@ public class MainMeun : MonoBehaviour
         Application.Quit();
     }
 
-    public void QuitGame()
-    {
-        Debug.Log("QUIT!");
-        Application.Quit();
-    }
 }
