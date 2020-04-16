@@ -3,17 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMeun : MonoBehaviour
+public class OpeningMeun : MonoBehaviour
 {
-    public void PlayGame()
+    public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
-    public void QuitGame()
-    {
-        Debug.Log("Quit");
-        Application.Quit();
-    }
-
 }
