@@ -2707,7 +2707,6 @@ GameObject:
   - component: {fileID: 1256250814}
   - component: {fileID: 1256250813}
   - component: {fileID: 1256250812}
-  - component: {fileID: 1256250811}
   - component: {fileID: 1256250810}
   m_Layer: 0
   m_Name: PlayerTwo
@@ -2731,22 +2730,6 @@ MonoBehaviour:
   coinPicking: {fileID: 8300000, guid: 963528e83313a6b4187a2a5e87d7b786, type: 3}
   battleManager: {fileID: 1870659201}
   player: 2
---- !u!58 &1256250811
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1256250809}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: eb26dd0981362db49a9df14b84e487e2, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.13}
-  serializedVersion: 2
-  m_Radius: 0.10587418
 --- !u!61 &1256250812
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2760,7 +2743,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004952371, y: 0.30603147}
+  m_Offset: {x: -0.004952371, y: 0.21094754}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -2771,7 +2754,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21257177, y: 0.19606382}
+  m_Size: {x: 0.21257177, y: 0.38623166}
   m_EdgeRadius: 0
 --- !u!50 &1256250813
 Rigidbody2D:
@@ -2810,6 +2793,9 @@ MonoBehaviour:
   animator: {fileID: 1256250817}
   runSpeed: 100
   player: 2
+  boxCollider2D: {fileID: 1256250812}
+  cellingCheck: {fileID: 379691128}
+  groundCheck: {fileID: 50095859}
 --- !u!114 &1256250815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2833,9 +2819,21 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 379691128}
   m_CrouchDisableCollider: {fileID: 1256250812}
   m_FacingRight: 0
+  m_Player: 2
   OnLandEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1256250814}
+        m_MethodName: OnLanding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -2854,7 +2852,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 1256250817}
   liuBeiAnimator: {fileID: 9100000, guid: b95265f99b6d90e438df1308a89c8bab, type: 2}
   caoCaoAnimator: {fileID: 22100000, guid: 3716ba920cfd0da45808d1f6c9c706f5, type: 2}
-  sunquanAnimator: {fileID: 0}
+  sunQuanAnimator: {fileID: 9100000, guid: 0b7e34fb77fa3cf4683afc6fd655e710, type: 2}
   player: 2
 --- !u!95 &1256250817
 Animator:
@@ -3062,7 +3060,6 @@ GameObject:
   - component: {fileID: 1655592192}
   - component: {fileID: 1655592190}
   - component: {fileID: 1655592189}
-  - component: {fileID: 1655592188}
   - component: {fileID: 1655592191}
   m_Layer: 0
   m_Name: PlayerOne
@@ -3154,22 +3151,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1655592188
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655592184}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: eb26dd0981362db49a9df14b84e487e2, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.13}
-  serializedVersion: 2
-  m_Radius: 0.10587418
 --- !u!61 &1655592189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3183,7 +3164,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004952371, y: 0.30603147}
+  m_Offset: {x: -0.004952371, y: 0.21094751}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -3194,7 +3175,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21257177, y: 0.19606382}
+  m_Size: {x: 0.21257177, y: 0.38623178}
   m_EdgeRadius: 0
 --- !u!50 &1655592190
 Rigidbody2D:
@@ -3248,6 +3229,9 @@ MonoBehaviour:
   animator: {fileID: 1655592185}
   runSpeed: 100
   player: 1
+  boxCollider2D: {fileID: 1655592189}
+  cellingCheck: {fileID: 299219215}
+  groundCheck: {fileID: 643007564}
 --- !u!114 &1655592193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3271,9 +3255,21 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 299219215}
   m_CrouchDisableCollider: {fileID: 1655592189}
   m_FacingRight: 0
+  m_Player: 1
   OnLandEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655592192}
+        m_MethodName: OnLanding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -3292,7 +3288,7 @@ MonoBehaviour:
   playerAnimator: {fileID: 1655592185}
   liuBeiAnimator: {fileID: 9100000, guid: b95265f99b6d90e438df1308a89c8bab, type: 2}
   caoCaoAnimator: {fileID: 22100000, guid: 3716ba920cfd0da45808d1f6c9c706f5, type: 2}
-  sunquanAnimator: {fileID: 9100000, guid: e2160b226fc74446dbd7b0521cb0ccf6, type: 2}
+  sunQuanAnimator: {fileID: 9100000, guid: 0b7e34fb77fa3cf4683afc6fd655e710, type: 2}
   player: 1
 --- !u!1 &1751891167
 GameObject:
