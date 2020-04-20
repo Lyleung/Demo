@@ -78,7 +78,7 @@ public class HeroSelectionManager : MonoBehaviour
             }
 
         } else if (descriptionStatus == 1){
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 description.SetActive(false);
                 descriptionStatus = 0;
@@ -86,7 +86,7 @@ public class HeroSelectionManager : MonoBehaviour
         }
 
         else if (descriptionStatus == 2){
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
                 description.SetActive(false);
                 descriptionStatus = 0;

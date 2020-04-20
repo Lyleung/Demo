@@ -29,6 +29,8 @@ public class HeroSelectionGuide : MonoBehaviour
     void Start()
     {
         // StartCoroutine(RemoveAfterSeconds(5, guide));
-        StartCoroutine(Fade());
+        // StartCoroutine(Fade());
+
+        guide.SetActive(true);
     }
 }
