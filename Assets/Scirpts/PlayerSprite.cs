@@ -7,7 +7,7 @@ public class PlayerSprite : MonoBehaviour
     public Animator playerAnimator;
     public RuntimeAnimatorController liuBeiAnimator;
     public RuntimeAnimatorController caoCaoAnimator;
-    public RuntimeAnimatorController sunquanAnimator;
+    public RuntimeAnimatorController sunQuanAnimator;
     public int player = 1;
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class PlayerSprite : MonoBehaviour
                     break;
                 case 2:
                     Debug.Log("SunQuan");
-                    playerAnimator.runtimeAnimatorController = sunquanAnimator;
+                    playerAnimator.runtimeAnimatorController = sunQuanAnimator;
                     break;
                 default:
                     Debug.Log("default");
@@ -48,7 +48,7 @@ public class PlayerSprite : MonoBehaviour
                     break;
                 case 2:
                     Debug.Log("SunQuan");
-                    playerAnimator.runtimeAnimatorController = sunquanAnimator;
+                    playerAnimator.runtimeAnimatorController = sunQuanAnimator;
                     break;
                 default:
                     Debug.Log("default");
