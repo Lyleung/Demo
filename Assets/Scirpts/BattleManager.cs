@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 public class BattleManager : MonoBehaviour
 {
+    public Transform playerOne;
+    public Transform playerTwo;
     public Text playerOneScoreText;
     public Text playerTwoScoreText;
     public int playerOneScore = 0;
@@ -12,22 +14,21 @@ public class BattleManager : MonoBehaviour
     public float loadSceneDelay = 3f;
     public GameObject battleEndUI;
     public GameObject coinObject;
+    public Camera camera;
+    public int time = 15;
 
     private int level;
-    private int time = 15;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         level = BoardModel.gameLevel[BoardModel.currentGame];
         Debug.Log("current level: " + level);
-        // backgroundMusic.Play();
+        //backgroundMusic.Play();
 
-        if (level == 2)
-        {
-            InvokeRepeating("timer", 0f, 1f);
-            InvokeRepeating("generateCoin", 1.0f, 1.5f);
-        }
+        if (level == 2 || level == 3) InvokeRepeating("timer", 0f, 1f);
+        if (level == 2) InvokeRepeating("generateCoin", 1.0f, 1.5f);
     }
 
     // Update is called once per frame
@@ -62,9 +63,12 @@ public class BattleManager : MonoBehaviour
         }
         else if (level == 3)
         {
-
+            Vector3 playerOnePos = camera.WorldToViewportPoint(playerOne.position);
+            Vector3 playerTwoPos = camera.WorldToViewportPoint(playerTwo.position);
+            //if (playerOnePos.y <= -0.1F) battleEnd(2);
+            //if (playerTwoPos.y <= -0.1F) battleEnd(1);
+            if (time <= 0 || coinCount <= 0) battleEnd();
         }
-
     }
 
     void battleEnd()
@@ -73,6 +77,14 @@ public class BattleManager : MonoBehaviour
         if (playerOneScore > playerTwoScore) wonPlayer = 1;
         else wonPlayer = 2;
 
+        wonPlayerText.text = "Player " + wonPlayer;
+        BoardModel.games[BoardModel.currentGame] = wonPlayer;
+
+        battleEndUI.SetActive(true); //Animation with load scene
+    }
+
+    void battleEnd(int wonPlayer)
+    {
         wonPlayerText.text = "Player " + wonPlayer;
         BoardModel.games[BoardModel.currentGame] = wonPlayer;
 

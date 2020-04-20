@@ -7,7 +7,7 @@ public class MainMeun : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("HeroSelection");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
@@ -16,9 +16,4 @@ public class MainMeun : MonoBehaviour
         Application.Quit();
     }
 
-    public void QuitGame()
-    {
-        Debug.Log("QUIT!");
-        Application.Quit();
-    }
 }

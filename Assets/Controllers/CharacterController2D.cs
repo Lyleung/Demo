@@ -11,7 +11,8 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
-	[SerializeField] private bool m_FacingRight = false;						// For determining which way the player is currently facing.
+	[SerializeField] private bool m_FacingRight = false;                        // For determining which way the player is currently facing.
+	[SerializeField] public int m_Player;
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -39,6 +40,12 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+
+		if (m_Player == 1)
+			if (CharactorSelectionModel.playerOne == 2) m_FacingRight = true;
+
+		if (m_Player == 2)
+			if (CharactorSelectionModel.playerTwo == 2) m_FacingRight = true;
 	}
 
 	private void FixedUpdate()

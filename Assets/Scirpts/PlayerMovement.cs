@@ -9,11 +9,29 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public float runSpeed = 40f;
     public int player;
+    public BoxCollider2D boxCollider2D;
+    public Transform cellingCheck;
+    public Transform groundCheck;
 
     float horizontalMove = 0f;
     float verticalMove = 0f;
     bool jump = false;
     bool crouch = false;
+
+    private void Start()
+    {
+        if (player == 1)
+        {
+            int charactor = CharactorSelectionModel.playerOne;
+            if(charactor == 2)
+            {
+                boxCollider2D.offset = new Vector2(-0.01988979f, -0.01316398f);
+                boxCollider2D.size = new Vector2(0.208304f, 0.4745293f);
+                cellingCheck.position = cellingCheck.position + new Vector3(0, -0.609f, 0);
+                groundCheck.position = groundCheck.position + new Vector3(0, -1.241f, 0);
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -110,16 +128,27 @@ public class PlayerMovement : MonoBehaviour
 
     private void SunQuanRun()
     {
-
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
     }
 
     private void SunQuanJump()
     {
+
+        if ((player == 1 && Input.GetKeyDown(KeyCode.W)) || (player == 2 && Input.GetKeyDown(KeyCode.UpArrow)))
+        {
+            jump = true;
+            animator.SetBool("isJumping", true);
+        }       
 
     }
 
     private void SunQuanCrouch()
     {
 
+    }
+
+    public void OnLanding()
+    {
+        animator.SetBool("isJumping", false);
     }
 }
