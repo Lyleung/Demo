@@ -1,1 +1,8 @@
+<<<<<<< HEAD
 m_EditorVersion: 2018.4.15f1
+||||||| merged common ancestors
+m_EditorVersion: 2018.4.20f1
+=======
+m_EditorVersion: 2020.1.0a23
+m_EditorVersionWithRevision: 2020.1.0a23 (607f55d6e9ce)
+>>>>>>> bd1b542eb27962dc2557fec3c377b009d4d28737
