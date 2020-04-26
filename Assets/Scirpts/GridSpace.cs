@@ -20,19 +20,19 @@ public class GridSpace : MonoBehaviour
 
     public void SetSpace()
     {
-        if (EventSystem.current.currentSelectedGameObject.name == "Grid Space" ||
-            EventSystem.current.currentSelectedGameObject.name == "Grid Space (1)" ||
-            EventSystem.current.currentSelectedGameObject.name == "Grid Space (2)")
+        if (EventSystem.current.currentSelectedGameObject.name == "Grid Space (1)" ||
+            EventSystem.current.currentSelectedGameObject.name == "Grid Space (3)" ||
+            EventSystem.current.currentSelectedGameObject.name == "Grid Space (5)" ||
+            EventSystem.current.currentSelectedGameObject.name == "Grid Space (7)")
             SceneManager.LoadScene("BattleLevelOneScene");
 
-        if (EventSystem.current.currentSelectedGameObject.name == "Grid Space (3)" ||
-            EventSystem.current.currentSelectedGameObject.name == "Grid Space (4)" ||
-            EventSystem.current.currentSelectedGameObject.name == "Grid Space (5)")
+        if (EventSystem.current.currentSelectedGameObject.name == "Grid Space" ||
+            EventSystem.current.currentSelectedGameObject.name == "Grid Space (2)" ||
+            EventSystem.current.currentSelectedGameObject.name == "Grid Space (6)" ||
+            EventSystem.current.currentSelectedGameObject.name == "Grid Space (8)")
             SceneManager.LoadScene("BattleLevelTwoScene");
 
-        if (EventSystem.current.currentSelectedGameObject.name == "Grid Space (6)" ||
-            EventSystem.current.currentSelectedGameObject.name == "Grid Space (7)" ||
-            EventSystem.current.currentSelectedGameObject.name == "Grid Space (8)")
+        if (EventSystem.current.currentSelectedGameObject.name == "Grid Space (4)")
             SceneManager.LoadScene("BattleLevelThreeScene");
 
 

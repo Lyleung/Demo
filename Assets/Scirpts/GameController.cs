@@ -155,6 +155,8 @@ public class GameController : MonoBehaviour
         {
             buttonList[i].text = "";
         }
+
+        SceneManager.LoadScene("Opening");
     }
 
     void SetBoardInteractable(bool toggle)
