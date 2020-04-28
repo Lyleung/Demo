@@ -19,7 +19,7 @@ public class PlayerColor
 
 public class GameController : MonoBehaviour
 {
-
+    public GameObject[] buttonImage;
     public Text[] buttonList;
     public GameObject gameOverPanel;
     public Text gameOverText;
@@ -29,11 +29,13 @@ public class GameController : MonoBehaviour
     public PlayerColor activePlayerColor;
     public PlayerColor inactivePlayerColor;
 
-    //public Sprite tileX = Resources.Load<Sprite>("isometric_0059");
-    //public Sprite tileO = Resources.Load<Sprite>("isometric_0061");
+    public Sprite redTile;
+    public Sprite blueTile;
 
     private string playerSide;
     private int moveCount;
+
+    private int player1tile;
 
     void Awake()
     {
@@ -41,9 +43,10 @@ public class GameController : MonoBehaviour
         playerSide = "X";
         gameOverPanel.SetActive(false);
         moveCount = 0;
+        player1tile = 0;
         restartButton.SetActive(false);
         SetPlayerColors(playerX, playerO);
-    }
+}
 
     void SetGameControllerReferenceOnButtons()
     {
@@ -60,11 +63,6 @@ public class GameController : MonoBehaviour
 
     public void EndTurn()
     {
-        //for (int i = 0; i < buttonList.Length; i++)
-        //{
-        //    buttonList[i].GetComponent<Image>().sprite = tileX;
-        //}
-
         moveCount++;
 
         if (buttonList[0].text == playerSide && buttonList[1].text == playerSide && buttonList[2].text == playerSide)
@@ -107,6 +105,22 @@ public class GameController : MonoBehaviour
         {
             ChangeSides();
         }
+
+        for (int i = 0; i < buttonList.Length; i++)
+        {
+            if (BoardModel.games[i] == 1)
+                buttonList[i].text = "X";
+                
+
+            if (BoardModel.games[i] == 2)
+                buttonList[i].text = "O";
+
+            if (buttonList[i].text == "X")
+                buttonImage[i].GetComponent<Image>().sprite = blueTile;
+
+            if (buttonList[i].text == "O")
+                buttonImage[i].GetComponent<Image>().sprite = redTile;
+        }
     }
 
     void ChangeSides()
@@ -135,11 +149,23 @@ public class GameController : MonoBehaviour
         SetBoardInteractable(false);
         if (winningPlayer == "draw")
         {
-            SetGameOverText("It's a Draw!");
+            for (int i=0; i < buttonList.Length; i++)
+            {
+                if (buttonList[i].text == "X")
+                    player1tile++;
+            }
+
+            if (player1tile>=5)
+                SetGameOverText("Player 1 Wins!");
+            else
+                SetGameOverText("Player 2 Wins!");
         }
         else
         {
-            SetGameOverText(winningPlayer + " Wins!");
+            if (winningPlayer == "X")
+                SetGameOverText("Player 1 Wins!");
+            else
+                SetGameOverText("Player 2 Wins!");
         }
         restartButton.SetActive(true);
     }

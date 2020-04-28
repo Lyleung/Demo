@@ -20,7 +20,7 @@ public class GridSpace : MonoBehaviour
 
     public void SetSpace()
     {
-        /*
+        
         if (EventSystem.current.currentSelectedGameObject.name == "Grid Space (1)" ||
             EventSystem.current.currentSelectedGameObject.name == "Grid Space (3)" ||
             EventSystem.current.currentSelectedGameObject.name == "Grid Space (5)" ||
@@ -35,7 +35,7 @@ public class GridSpace : MonoBehaviour
 
         if (EventSystem.current.currentSelectedGameObject.name == "Grid Space (4)")
             SceneManager.LoadScene("BattleLevelThreeScene");
-            */
+        
 
         buttonText.text = gameController.GetPlayerSide();
         button.interactable = false;
