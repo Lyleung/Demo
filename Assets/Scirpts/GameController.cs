@@ -29,8 +29,8 @@ public class GameController : MonoBehaviour
     public PlayerColor activePlayerColor;
     public PlayerColor inactivePlayerColor;
 
-    public Sprite tileX = Resources.Load<Sprite>("isometric_0059");
-    public Sprite tileO = Resources.Load<Sprite>("isometric_0061");
+    //public Sprite tileX = Resources.Load<Sprite>("isometric_0059");
+    //public Sprite tileO = Resources.Load<Sprite>("isometric_0061");
 
     private string playerSide;
     private int moveCount;
