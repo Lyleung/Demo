@@ -20,10 +20,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+
         if (player == 1)
         {
             int charactor = CharactorSelectionModel.playerOne;
-            if(charactor == 2)
+            Debug.Log("I am player " + player + " with charactor " + charactor);
+            if (charactor == 2)
+            {
+                boxCollider2D.offset = new Vector2(-0.01988979f, -0.01316398f);
+                boxCollider2D.size = new Vector2(0.208304f, 0.4745293f);
+                cellingCheck.position = cellingCheck.position + new Vector3(0, -0.609f, 0);
+                groundCheck.position = groundCheck.position + new Vector3(0, -1.241f, 0);
+            }
+        } else if (player == 2)
+        {
+            int charactor = CharactorSelectionModel.playerTwo;
+            Debug.Log("I am player " + player + " with charactor " + charactor);
+            if (charactor == 2)
             {
                 boxCollider2D.offset = new Vector2(-0.01988979f, -0.01316398f);
                 boxCollider2D.size = new Vector2(0.208304f, 0.4745293f);
