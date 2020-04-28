@@ -29,6 +29,9 @@ public class GameController : MonoBehaviour
     public PlayerColor activePlayerColor;
     public PlayerColor inactivePlayerColor;
 
+    public Sprite tileX = Resources.Load<Sprite>("isometric_0059");
+    public Sprite tileO = Resources.Load<Sprite>("isometric_0061");
+
     private string playerSide;
     private int moveCount;
 
@@ -57,6 +60,11 @@ public class GameController : MonoBehaviour
 
     public void EndTurn()
     {
+        //for (int i = 0; i < buttonList.Length; i++)
+        //{
+        //    buttonList[i].GetComponent<Image>().sprite = tileX;
+        //}
+
         moveCount++;
 
         if (buttonList[0].text == playerSide && buttonList[1].text == playerSide && buttonList[2].text == playerSide)
