@@ -37,6 +37,45 @@ public class GameController : MonoBehaviour
 
     private int player1tile;
 
+    public SpriteRenderer playerOne;
+    public SpriteRenderer playerTwo;
+    public Sprite LiuBeiSprite;
+    public Sprite CaoCaoSprite;
+    public Sprite SunQuanSprite;
+
+    private void Start()
+    {
+        Debug.Log("CharactorSelectionModel.playerOne: " + CharactorSelectionModel.playerOne);
+        switch (CharactorSelectionModel.playerOne)
+        {
+            case 0:
+                playerOne.sprite = LiuBeiSprite;
+                break;
+            case 1:
+                playerOne.sprite = CaoCaoSprite;
+                break;
+            case 2:
+                playerOne.sprite = SunQuanSprite;
+                playerOne.transform.position = playerOne.transform.position + new Vector3(0f, 0.6f, 0f);
+                break;
+        }
+
+        Debug.Log("CharactorSelectionModel.playerTwo: " + CharactorSelectionModel.playerTwo);
+        switch (CharactorSelectionModel.playerTwo)
+        {
+            case 0:
+                playerTwo.sprite = LiuBeiSprite;
+                break;
+            case 1:
+                playerTwo.sprite = CaoCaoSprite;
+                break;
+            case 2:
+                playerTwo.sprite = SunQuanSprite;
+                playerTwo.transform.position = playerTwo.transform.position + new Vector3(0f, 0.6f, 0f);
+                break;
+        }
+    }
+
     void Awake()
     {
         SetGameControllerReferenceOnButtons();
@@ -45,7 +84,7 @@ public class GameController : MonoBehaviour
         moveCount = 0;
         player1tile = 0;
         restartButton.SetActive(false);
-        SetPlayerColors(playerX, playerO);
+        //SetPlayerColors(playerX, playerO);
 }
 
     void SetGameControllerReferenceOnButtons()
