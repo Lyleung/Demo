@@ -24,8 +24,8 @@ public class GameController : MonoBehaviour
     public GameObject gameOverPanel;
     public Text gameOverText;
     public GameObject restartButton;
-    public Player playerX;
-    public Player playerO;
+   // public Player playerX;
+    //public Player playerO;
     public PlayerColor activePlayerColor;
     public PlayerColor inactivePlayerColor;
 
@@ -85,7 +85,26 @@ public class GameController : MonoBehaviour
         player1tile = 0;
         restartButton.SetActive(false);
         //SetPlayerColors(playerX, playerO);
-}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        for (int i = 0; i < buttonList.Length; i++)
+        {
+            if (BoardModel.games[i] == 1)
+                buttonList[i].text = "X";
+
+            if (BoardModel.games[i] == 2)
+                buttonList[i].text = "O";
+
+            if (buttonList[i].text == "X") 
+                buttonImage[i].GetComponent<Image>().sprite = blueTile;
+
+            if (buttonList[i].text == "O")
+                buttonImage[i].GetComponent<Image>().sprite = redTile;
+        }
+    }
 
     void SetGameControllerReferenceOnButtons()
     {
@@ -144,22 +163,6 @@ public class GameController : MonoBehaviour
         {
             ChangeSides();
         }
-
-        for (int i = 0; i < buttonList.Length; i++)
-        {
-            if (BoardModel.games[i] == 1)
-                buttonList[i].text = "X";
-                
-
-            if (BoardModel.games[i] == 2)
-                buttonList[i].text = "O";
-
-            if (buttonList[i].text == "X")
-                buttonImage[i].GetComponent<Image>().sprite = blueTile;
-
-            if (buttonList[i].text == "O")
-                buttonImage[i].GetComponent<Image>().sprite = redTile;
-        }
     }
 
     void ChangeSides()
@@ -167,11 +170,11 @@ public class GameController : MonoBehaviour
         playerSide = (playerSide == "X") ? "O" : "X";
         if (playerSide == "X")
         {
-            SetPlayerColors(playerX, playerO);
+            //SetPlayerColors(playerX, playerO);
         }
         else
         {
-            SetPlayerColors(playerO, playerX);
+           // SetPlayerColors(playerO, playerX);
         }
     }
 
@@ -221,7 +224,7 @@ public class GameController : MonoBehaviour
         moveCount = 0;
         gameOverPanel.SetActive(false);
         restartButton.SetActive(false);
-        SetPlayerColors(playerX, playerO);
+        //SetPlayerColors(playerX, playerO);
         SetBoardInteractable(true);
 
         for (int i = 0; i < buttonList.Length; i++)

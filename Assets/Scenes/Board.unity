@@ -2087,7 +2087,7 @@ GameObject:
   - component: {fileID: 797104063}
   - component: {fileID: 797104062}
   m_Layer: 0
-  m_Name: Battle Controller
+  m_Name: Game Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2128,12 +2128,6 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1761169697}
   gameOverText: {fileID: 1982642560}
   restartButton: {fileID: 501194201}
-  playerX:
-    panel: {fileID: 0}
-    text: {fileID: 0}
-  playerO:
-    panel: {fileID: 0}
-    text: {fileID: 0}
   activePlayerColor:
     panelColor: {r: 1, g: 1, b: 1, a: 1}
     textColor: {r: 1, g: 1, b: 1, a: 1}
