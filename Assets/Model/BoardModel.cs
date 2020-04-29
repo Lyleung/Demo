@@ -4,8 +4,8 @@
     // 1: player 1 won
     // 2: player 2 won
 
-    static public int[] games = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0};
-    static public int[] gameLevel = new int[] {1, 1, 1, 1, 2, 2, 2, 2, 3};
-    static public int currentGame = 0;
+    static public int[] games = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0}; 
+    static public int[] gameLevel = new int[] {2, 1, 2, 1, 3, 1, 2, 1, 2};
+    static public int currentGame = 0; // 0-8
 }
 
