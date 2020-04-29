@@ -65,8 +65,8 @@ public class BattleManager : MonoBehaviour
         {
             Vector3 playerOnePos = camera.WorldToViewportPoint(playerOne.position);
             Vector3 playerTwoPos = camera.WorldToViewportPoint(playerTwo.position);
-            //if (playerOnePos.y <= -0.1F) battleEnd(2);
-            //if (playerTwoPos.y <= -0.1F) battleEnd(1);
+            if (playerOnePos.y <= -0.1F) battleEnd(2);
+            if (playerTwoPos.y <= -0.1F) battleEnd(1);
             if (time <= 0 || coinCount <= 0) battleEnd();
         }
     }
