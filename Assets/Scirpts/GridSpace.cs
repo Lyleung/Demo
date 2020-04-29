@@ -10,8 +10,31 @@ public class GridSpace : MonoBehaviour
 
     public Button button;
     public Text buttonText;
+    public int id;
 
     private GameController gameController;
+
+    private void Start()
+    {
+        if (gameObject.name == "Grid Space")
+            id = 0;
+        else if (gameObject.name == "Grid Space (1)")
+            id = 1;
+        else if (gameObject.name == "Grid Space (2)")
+            id = 2;
+        else if (gameObject.name == "Grid Space (3)")
+            id = 3;
+        else if (gameObject.name == "Grid Space (4)")
+            id = 4;
+        else if (gameObject.name == "Grid Space (5)")
+            id = 5;
+        else if (gameObject.name == "Grid Space (6)")
+            id = 6;
+        else if (gameObject.name == "Grid Space (7)")
+            id = 7;
+        else if (gameObject.name == "Grid Space (8)")
+            id = 8;
+    }
 
     public void SetGameControllerReference(GameController controller)
     {
@@ -20,67 +43,33 @@ public class GridSpace : MonoBehaviour
 
     private void Update()
     {
-        if (gameObject.name == "Grid Space" && BoardModel.games[0] != 0 ||
-            gameObject.name == "Grid Space (1)" && BoardModel.games[1] != 0 ||
-            gameObject.name == "Grid Space (2)" && BoardModel.games[2] != 0 ||
-            gameObject.name == "Grid Space (3)" && BoardModel.games[3] != 0 ||
-            gameObject.name == "Grid Space (4)" && BoardModel.games[4] != 0 ||
-            gameObject.name == "Grid Space (5)" && BoardModel.games[5] != 0 ||
-            gameObject.name == "Grid Space (6)" && BoardModel.games[6] != 0 ||
-            gameObject.name == "Grid Space (7)" && BoardModel.games[7] != 0 ||
-            gameObject.name == "Grid Space (8)" && BoardModel.games[8] != 0)
+        if (BoardModel.games[id] != 0 && button.interactable != false)
+        { 
             button.interactable = false;
+
+            if (BoardModel.games[id] == 1)
+                buttonText.text = "X";
+            else
+                buttonText.text = "O";
+
+            gameController.EndTurn(buttonText.text);
+        }
     }
 
     public void SetSpace()
     {
-        if (gameObject.name == "Grid Space") {
-            BoardModel.currentGame = 0;
+        BoardModel.currentGame = id;
+
+        if (id == 0 || id == 2 || id == 6 || id == 8) {
             SceneManager.LoadScene("BattleLevelTwoScene");
         }
-        else if (gameObject.name == "Grid Space (1)")
+        else if (id == 1 || id == 3 || id == 5 || id == 7)
         {
-            BoardModel.currentGame = 1;
             SceneManager.LoadScene("BattleLevelOneScene");
         }
-        else if (gameObject.name == "Grid Space (2)")
+        else if (id == 4)
         {
-            BoardModel.currentGame = 2;
-            SceneManager.LoadScene("BattleLevelTwoScene");
-        }
-        else if (gameObject.name == "Grid Space (3)")
-        {
-            BoardModel.currentGame = 3;
-            SceneManager.LoadScene("BattleLevelOneScene");
-        }
-        else if (gameObject.name == "Grid Space (4)")
-        {
-            BoardModel.currentGame = 4;
             SceneManager.LoadScene("BattleLevelThreeScene");
         }
-        else if (gameObject.name == "Grid Space (5)")
-        {
-            BoardModel.currentGame = 5;
-            SceneManager.LoadScene("BattleLevelOneScene");
-        }
-        else if (gameObject.name == "Grid Space (6)")
-        {
-            BoardModel.currentGame = 6;
-            SceneManager.LoadScene("BattleLevelTwoScene");
-        }
-        else if (gameObject.name == "Grid Space (7)")
-        {
-            BoardModel.currentGame = 7;
-            SceneManager.LoadScene("BattleLevelOneScene");
-        }
-        else if (gameObject.name == "Grid Space (8)")
-        {
-            BoardModel.currentGame = 8;
-            SceneManager.LoadScene("BattleLevelTwoScene");
-        }
-        
-
-        buttonText.text = gameController.GetPlayerSide();
-        gameController.EndTurn();
     }
 }

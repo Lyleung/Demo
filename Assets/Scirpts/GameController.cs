@@ -119,41 +119,41 @@ public class GameController : MonoBehaviour
         return playerSide;
     }
 
-    public void EndTurn()
+    public void EndTurn(string winner)
     {
         moveCount++;
 
-        if (buttonList[0].text == playerSide && buttonList[1].text == playerSide && buttonList[2].text == playerSide)
+        if (buttonList[0].text == winner && buttonList[1].text == winner && buttonList[2].text == winner)
         {
-            GameOver(playerSide);
+            GameOver(winner);
         }
-        else if (buttonList[3].text == playerSide && buttonList[4].text == playerSide && buttonList[5].text == playerSide)
+        else if (buttonList[3].text == winner && buttonList[4].text == winner && buttonList[5].text == winner)
         {
-            GameOver(playerSide);
+            GameOver(winner);
         }
-        else if (buttonList[6].text == playerSide && buttonList[7].text == playerSide && buttonList[8].text == playerSide)
+        else if (buttonList[6].text == winner && buttonList[7].text == winner && buttonList[8].text == winner)
         {
-            GameOver(playerSide);
+            GameOver(winner);
         }
-        else if (buttonList[0].text == playerSide && buttonList[3].text == playerSide && buttonList[6].text == playerSide)
+        else if (buttonList[0].text == winner && buttonList[3].text == winner && buttonList[6].text == winner)
         {
-            GameOver(playerSide);
+            GameOver(winner);
         }
-        else if (buttonList[1].text == playerSide && buttonList[4].text == playerSide && buttonList[7].text == playerSide)
+        else if (buttonList[1].text == winner && buttonList[4].text == winner && buttonList[7].text == winner)
         {
-            GameOver(playerSide);
+            GameOver(winner);
         }
-        else if (buttonList[2].text == playerSide && buttonList[5].text == playerSide && buttonList[8].text == playerSide)
+        else if (buttonList[2].text == winner && buttonList[5].text == playerSide && buttonList[8].text == winner)
         {
-            GameOver(playerSide);
+            GameOver(winner);
         }
-        else if (buttonList[0].text == playerSide && buttonList[4].text == playerSide && buttonList[8].text == playerSide)
+        else if (buttonList[0].text == winner && buttonList[4].text == winner && buttonList[8].text == winner)
         {
-            GameOver(playerSide);
+            GameOver(winner);
         }
-        else if (buttonList[2].text == playerSide && buttonList[4].text == playerSide && buttonList[6].text == playerSide)
+        else if (buttonList[2].text == winner && buttonList[4].text == winner && buttonList[6].text == winner)
         {
-            GameOver(playerSide);
+            GameOver(winner);
         }
         else if (moveCount >= 9)
         {
