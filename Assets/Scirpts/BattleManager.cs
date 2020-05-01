@@ -25,7 +25,8 @@ public class BattleManager : MonoBehaviour
     {
         level = BoardModel.gameLevel[BoardModel.currentGame];
         Debug.Log("current level: " + level);
-        //backgroundMusic.Play();
+        backgroundMusic.volume = 0.7f;
+        backgroundMusic.Play();
 
         if (level == 2 || level == 3) InvokeRepeating("timer", 0f, 1f);
         if (level == 2) InvokeRepeating("generateCoin", 1.0f, 1.5f);
