@@ -3343,7 +3343,7 @@ GameObject:
   - component: {fileID: 1458492195}
   - component: {fileID: 1458492194}
   m_Layer: 0
-  m_Name: MusMus-BGM-067
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3358,10 +3358,11 @@ AudioSource:
   m_GameObject: {fileID: 1458492193}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: fa1d599c897bb29488006c957b6a1433,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 0a670380270671044a9109907bf59aaa, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.06
+  m_Volume: 0.107
   m_Pitch: 1
   Loop: 0
   Mute: 0
