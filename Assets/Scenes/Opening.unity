@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 440818947}
   - component: {fileID: 440818946}
   m_Layer: 0
-  m_Name: MusMus-BGM-039
+  m_Name: BGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a36e4e3ca965bf74fbd3ce4f75012696, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.06
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -402,7 +402,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1.2, y: -50}
-  m_SizeDelta: {x: 202.6, y: 28.3}
+  m_SizeDelta: {x: 329.20663, y: 45.98493}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &660195652
 MonoBehaviour:
@@ -804,8 +804,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
